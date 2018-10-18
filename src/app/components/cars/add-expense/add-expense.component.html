@@ -1,0 +1,80 @@
+<div class="container">
+  <h4 *ngIf="car && !editCarId">Add Expenses for car: <i>{{car.carName}} / {{car.carBrand}} {{car.carModel}}</i> </h4>
+  <br>
+  <form [formGroup]="expenseForm" (ngSubmit)="updateCarExpenses()">
+
+    <div class="form-group" *ngIf="!editCarId">
+      <label for="initialInvestment">Initial Investment</label>
+      <input  type="number" class="form-control" id="initialInvestment" formControlName="initialInvestment">
+      <div *ngIf="initialInvestment.invalid " class="alert alert-danger">
+        <div *ngIf="initialInvestment.errors.pattern">
+           Be careful! Are you really want to change the value of your Initial Investment ?
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fuel">Fuel</label>
+      <input type="number" class="form-control" id="fuel" formControlName="fuel" >
+      <div *ngIf="fuel.invalid" class="alert alert-danger">
+          <div *ngIf="fuel.errors.pattern">
+              The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="carRepair">Car Repair</label>
+      <input type="number" class="form-control" id="carRepair" formControlName="carRepair" >
+      <div *ngIf="carRepair.invalid" class="alert alert-danger">
+          <div *ngIf="carRepair.errors.pattern">
+              The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="consumables">Consumables</label>
+      <input type="number" class="form-control" id="consumables" formControlName="consumables" >
+      <div *ngIf="consumables.invalid" class="alert alert-danger">
+          <div *ngIf="consumables.errors.pattern">
+              The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="accessories">Accessories</label>
+      <input type="number" class="form-control" id="accessories" formControlName="accessories" >
+      <div *ngIf="accessories.invalid" class="alert alert-danger">
+          <div *ngIf="accessories.errors.pattern">
+              The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="cleaning">Cleaning</label>
+      <input type="number" class="form-control" id="cleaning" formControlName="cleaning"  >
+      <div *ngIf="cleaning.invalid" class="alert alert-danger">
+          <div *ngIf="cleaning.errors.pattern">
+              The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="taxes">Taxes and Charges</label>
+      <input type="number" class="form-control" id="taxes" formControlName="taxes"  >
+      <div *ngIf="taxes.invalid" class="alert alert-danger">
+          <div *ngIf="taxes.errors.pattern">
+              The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="initialInvestment">Others</label>
+      <input type="number" class="form-control" id="others"   formControlName="others">
+      <div *ngIf="others.invalid" class="alert alert-danger">
+          <div *ngIf="others.errors.pattern">
+            The field must contain positive number.
+          </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="expenseForm.invalid">Add Expense</button>
+  </form>
+</div>

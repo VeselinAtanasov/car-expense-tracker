@@ -1,0 +1,41 @@
+<div class="container">
+  <h1 *ngIf="!garageId">Create Garage Form</h1>
+  <br>
+  <form [formGroup]="garageFrom" (ngSubmit)="createGarage()">
+    <div class="form-group">
+      <label for="garageName">Garage Name</label>
+      <input type="text" class="form-control" id="garageName" formControlName="garageName" />
+      <div *ngIf="garageName.invalid && (garageName.dirty || garageName.touched)" class="alert alert-danger">
+        <div *ngIf="garageName.errors.required">
+          Garage name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="garageDescription">Enter Garage Description</label>
+      <textarea class="form-control" id="garageDescription" rows="3" formControlName="garageDescription"></textarea>
+      <div *ngIf="garageDescription.invalid && (garageDescription.dirty || garageDescription.touched)" class="alert alert-danger">
+        <div *ngIf="garageDescription.errors.required">
+          Garage name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" formControlName="isPublic"> Make your garage public to everyone
+      </label>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="exampleInputFile">Add picture URL for your Garage</label>
+      <input type="text" class="form-control-file" id="exampleInputFile" formControlName="garagePicture">
+      <div *ngIf="garagePicture.invalid && (garagePicture.dirty || garagePicture.touched)" class="alert alert-danger">
+        <div *ngIf="garagePicture.errors.pattern">
+          Please check the URL
+        </div>
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled]="garageFrom.invalid">Create Garage</button>
+  </form>
+</div>

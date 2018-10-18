@@ -1,0 +1,37 @@
+
+
+<div class="container" *ngIf="garageData">
+  <div class="jumbotron">
+    <div >
+      <h3 class="display-3">{{garageData.garageName}}</h3>
+      <img class="center" src="{{garageData.garagePicture}}" alt="Card image">
+      <br>
+     
+      <hr class="my-4">
+      <p class="lead"> <i>Garage Description:</i> {{garageData.garageDescription}}. The number of cars in the garage is: {{garageData.cars.length}}!</p>
+    </div>
+  </div>
+
+  <div *ngIf=" cars?.length===0">
+      <div class="alert alert-dismissible alert-primary" >
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>There are no cars registered in the garage.</strong>  
+        </div>
+  </div>
+
+
+
+  <div class="card" *ngIf="cars && cars?.length!==0">
+    <div class="card custom" *ngFor="let car of cars">
+      <div class="card-body">
+        <h2 class="card-title">Car name: {{car.carName}}</h2>
+        <img class="center-car" src="{{car.carPicture}}" alt="Card image">
+        <br>
+        <h4 class="card-subtitle mb-2 text-muted">Car Brand: {{car.carBrand}}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Car Model: {{car.carModel}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Car Price: {{car.initialInvestment}} lv.</h6>
+        <p class="card-text">Card Description: {{car.carDescription}}</p>
+      </div>
+    </div>
+  </div>
+</div>

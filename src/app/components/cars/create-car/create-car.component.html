@@ -1,0 +1,326 @@
+<div class="container">
+  <h1 *ngIf="!carId">Add Car To Your Garage</h1>
+  <br>
+  <form [formGroup]="carForm" (ngSubmit)="createCar()">
+    <div class="form-group">
+      <label for="carName">Car Name:</label>
+      <input type="text" class="form-control" id="carName" formControlName="carName" />
+      <div *ngIf="carName.invalid && (carName.dirty || carName.touched)" class="alert alert-danger">
+        <div *ngIf="carName.errors.required">
+          Car name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect1">Find Your Car:</label>
+      <select class="form-control" id="exampleSelect1" formControlName="carBrand">
+        <option value="">All
+        </option>
+        <option value="AC">AC
+        </option>
+        <option value="Acura">Acura
+        </option>
+        <option value="Aixam">Aixam
+        </option>
+        <option value="Alfa Romeo">Alfa Romeo
+        </option>
+        <option value="Aro">Aro
+        </option>
+        <option value="Asia">Asia
+        </option>
+        <option value="Aston martin">Aston martin
+        </option>
+        <option value="Audi">Audi
+        </option>
+        <option value="Austin">Austin
+        </option>
+        <option value="BMW">BMW
+        </option>
+        <option value="Bentley">Bentley
+        </option>
+        <option value="Berliner">Berliner
+        </option>
+        <option value="Bertone">Bertone
+        </option>
+        <option value="Borgward">Borgward
+        </option>
+        <option value="Brilliance">Brilliance
+        </option>
+        <option value="Bugatti">Bugatti
+        </option>
+        <option value="Buick">Buick
+        </option>
+        <option value="Cadillac">Cadillac
+        </option>
+        <option value="Chevrolet">Chevrolet
+        </option>
+        <option value="Chrysler">Chrysler
+        </option>
+        <option value="Citroen">Citroen
+        </option>
+        <option value="Corvette">Corvette
+        </option>
+        <option value="Dacia">Dacia
+        </option>
+        <option value="Daewoo">Daewoo
+        </option>
+        <option value="Daihatsu">Daihatsu
+        </option>
+        <option value="Daimler">Daimler
+        </option>
+        <option value="Datsun">Datsun
+        </option>
+        <option value="Dkw">Dkw
+        </option>
+        <option value="Dodge">Dodge
+        </option>
+        <option value="Dr">Dr
+        </option>
+        <option value="Eagle">Eagle
+        </option>
+        <option value="FSO">FSO
+        </option>
+        <option value="Ferrari">Ferrari
+        </option>
+        <option value="Fiat">Fiat
+        </option>
+        <option value="Ford">Ford
+        </option>
+        <option value="GOUPIL">GOUPIL
+        </option>
+        <option value="Gaz">Gaz
+        </option>
+        <option value="Geo">Geo
+        </option>
+        <option value="Gmc">Gmc
+        </option>
+        <option value="Great Wall">Great Wall
+        </option>
+        <option value="Heinkel">Heinkel
+        </option>
+        <option value="Honda">Honda
+        </option>
+        <option value="Hummer">Hummer
+        </option>
+        <option value="Hyundai">Hyundai
+        </option>
+        <option value="Ifa">Ifa
+        </option>
+        <option value="Infiniti">Infiniti
+        </option>
+        <option value="Innocenti">Innocenti
+        </option>
+        <option value="Isuzu">Isuzu
+        </option>
+        <option value="Iveco">Iveco
+        </option>
+        <option value="Jaguar">Jaguar
+        </option>
+        <option value="Jeep">Jeep
+        </option>
+        <option value="Jpx">Jpx
+        </option>
+        <option value="Kia">Kia
+        </option>
+        <option value="Lada">Lada
+        </option>
+        <option value="Laforza">Laforza
+        </option>
+        <option value="Lamborghini">Lamborghini
+        </option>
+        <option value="Lancia">Lancia
+        </option>
+        <option value="Land Rover">Land Rover
+        </option>
+        <option value="Landwind">Landwind
+        </option>
+        <option value="Lexus">Lexus
+        </option>
+        <option value="Lifan">Lifan
+        </option>
+        <option value="Lincoln">Lincoln
+        </option>
+        <option value="Lotus">Lotus
+        </option>
+        <option value="Mahindra">Mahindra
+        </option>
+        <option value="Maserati">Maserati
+        </option>
+        <option value="Matra">Matra
+        </option>
+        <option value="Maybach">Maybach
+        </option>
+        <option value="Mazda">Mazda
+        </option>
+        <option value="McLaren">McLaren
+        </option>
+        <option value="Mercedes-Benz">Mercedes-Benz
+        </option>
+        <option value="Mercury">Mercury
+        </option>
+        <option value="Mg">Mg
+        </option>
+        <option value="Microcar">Microcar
+        </option>
+        <option value="Mini">Mini
+        </option>
+        <option value="Mitsubishi">Mitsubishi
+        </option>
+        <option value="Morgan">Morgan
+        </option>
+        <option value="Moskvich">Moskvich
+        </option>
+        <option value="Nissan">Nissan
+        </option>
+        <option value="Oldsmobile">Oldsmobile
+        </option>
+        <option value="Opel">Opel
+        </option>
+        <option value="Perodua">Perodua
+        </option>
+        <option value="Peugeot">Peugeot
+        </option>
+        <option value="Pgo">Pgo
+        </option>
+        <option value="Plymouth">Plymouth
+        </option>
+        <option value="Polonez">Polonez
+        </option>
+        <option value="Pontiac">Pontiac
+        </option>
+        <option value="Porsche">Porsche
+        </option>
+        <option value="Proton">Proton
+        </option>
+        <option value="Renault">Renault
+        </option>
+        <option value="Rolls-Royce">Rolls-Royce
+        </option>
+        <option value="Rover">Rover
+        </option>
+        <option value="SECMA">SECMA
+        </option>
+        <option value="SH auto">SH auto
+        </option>
+        <option value="Saab">Saab
+        </option>
+        <option value="Samand">Samand
+        </option>
+        <option value="Saturn">Saturn
+        </option>
+        <option value="Scion">Scion
+        </option>
+        <option value="Seat">Seat
+        </option>
+        <option value="Shatenet">Shatenet
+        </option>
+        <option value="Shuanghuan">Shuanghuan
+        </option>
+        <option value="Simca">Simca
+        </option>
+        <option value="Skoda">Skoda
+        </option>
+        <option value="Smart">Smart
+        </option>
+        <option value="Ssang yong">Ssang yong
+        </option>
+        <option value="SsangYong">SsangYong
+        </option>
+        <option value="Subaru">Subaru
+        </option>
+        <option value="Suzuki">Suzuki
+        </option>
+        <option value="Talbot">Talbot
+        </option>
+        <option value="Tata">Tata
+        </option>
+        <option value="Tavria">Tavria
+        </option>
+        <option value="Tazzari">Tazzari
+        </option>
+        <option value="Tempo">Tempo
+        </option>
+        <option value="Terberg">Terberg
+        </option>
+        <option value="Tesla">Tesla
+        </option>
+        <option value="Tofas">Tofas
+        </option>
+        <option value="Toyota">Toyota
+        </option>
+        <option value="Trabant">Trabant
+        </option>
+        <option value="Triumph">Triumph
+        </option>
+        <option value="Uaz">Uaz
+        </option>
+        <option value="VROMOS">VROMOS
+        </option>
+        <option value="VW">VW
+        </option>
+        <option value="Volga">Volga
+        </option>
+        <option value="Volvo">Volvo
+        </option>
+        <option value="Warszawa">Warszawa
+        </option>
+        <option value="Wartburg">Wartburg
+        </option>
+        <option value="Wiesmann">Wiesmann
+        </option>
+        <option value="Xinkai">Xinkai
+        </option>
+        <option value="Xinshun">Xinshun
+        </option>
+        <option value="Zastava">Zastava
+        </option>
+        <option value="Zaz">Zaz
+        </option>
+        <option value="Others">Others
+
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="carModel">Add Your Car Model</label>
+      <input type="text" class="form-control" id="carName" formControlName="carModel" />
+    </div>
+    <div class="form-group">
+      <label for="carDescription">Enter Car Description:</label>
+      <textarea class="form-control" id="carDescription" rows="3" formControlName="carDescription"></textarea>
+    </div>
+    <div *ngIf="carDescription.invalid && (carDescription.dirty || carDescription.touched)" class="alert alert-danger">
+      <div *ngIf="carDescription.errors.required">
+        Car description name is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="initialInvestment">Initial Investment</label>
+      <input type="number" class="form-control" id="initialInvestment" formControlName="initialInvestment" formControlName="initialInvestment"
+      />
+      <div *ngIf="initialInvestment.invalid && (initialInvestment.dirty || initialInvestment.touched)" class="alert alert-danger">
+        <div *ngIf="initialInvestment.errors.required">
+          Initial Investment is required
+        </div>
+        <div *ngIf="initialInvestment.errors.pattern">
+          Initial Investment must be positive number
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="exampleInputFile">Upload Picture Of Your Car</label>
+      <input type="text" class="form-control-file" id="exampleInputFile" formControlName="carPicture">
+      <div *ngIf="carPicture.invalid && (carPicture.dirty || carPicture.touched)" class="alert alert-danger">
+        <div *ngIf="carPicture.errors.required">
+          Car picture is required
+        </div>
+        <div *ngIf="carPicture.errors.pattern">
+          Please check the URL
+        </div>
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled]="carForm.invalid">Create Car</button>
+  </form>
+</div>

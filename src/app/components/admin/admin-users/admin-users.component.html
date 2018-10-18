@@ -1,0 +1,52 @@
+<div class="container-fluid">
+
+  <div class="center">
+    <h1>List of registered users:</h1>
+    <a routerLink="/admin/register" type="button" class="btn btn-success">Create New User</a>
+  </div>
+  <div className="modal-body row" *ngIf="users?.length!==0">
+    <div className="col-md-4" *ngFor="let user of users" >
+      <div class="modal-dialog" role="document" >
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h5 class="modal-title">User Details:</h5>
+            <button (click)="deleteUser(user._id)" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="false">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              UserID:
+              <strong>{{ user._id }} </strong>
+            </p>
+            <p>
+              UserName:
+              <strong>{{ user.username }} </strong>
+            </p>
+            <p>
+              UserEmail:
+              <strong>{{ user.email }} </strong>
+            </p>
+            <p>
+              User First Name:
+              <strong>{{ user.firstName }} </strong>
+            </p>
+            <p>
+              User Last Name:
+              <strong>{{ user.lastName }} </strong>
+            </p>
+            <p>
+              Is Admin:
+              <strong> {{user['_kmd']['roles'] && user['_kmd']['roles'].length!==0 ? "YES" : "NO"}} </strong>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a class="badge badge-warning" routerLink="/admin/editUser/{{user._id}}">Edit User / Change Password</a>
+            <span (click)="makeAnAdmin(user._id)" class="badge badge-success">Make this user an Admin</span>
+            <span (click)="removeFromAdmin(user._id)" class="badge badge-danger">Remove Admin role for the user</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

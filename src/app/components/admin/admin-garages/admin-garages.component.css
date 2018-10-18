@@ -1,0 +1,57 @@
+img {
+    max-width: 100%;
+    height: 100px;
+    vertical-align: top;
+    position: center;
+
+  }
+
+  
+  a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bg-primary{
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    max-width: 100%;
+  }
+
+  .btn-info{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.modal-content{
+    margin-bottom: 3%;
+    background-color: white; 
+    overflow: auto;
+}
+.close{
+    background-color: red
+}
+h{
+    vertical-align: middle;
+    text-align: center;
+}
+.center{
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto; 
+
+}
+
+.modal-body{
+    border-color: black;
+    margin-top: 4%
+}

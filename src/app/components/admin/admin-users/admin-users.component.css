@@ -1,0 +1,19 @@
+
+.modal-content{
+    margin-bottom: 3%;
+    background-color:#cccccc; 
+    overflow: auto;
+}
+.close{
+    background-color:red
+}
+h{
+    vertical-align: middle;
+    text-align: center;
+}
+.center{
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto; 
+
+}

@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Here are all cars of user: {{authService.getUserName()}}</h2>
+    <p class="text-danger">You want to remove one! Please, choose and press X</p>
+    <div class="custom-space" *ngIf="!cars || cars.length===0">
+        <div class="alert alert-dismissible alert-success"  >
+          You don't have any cars in your garage 
+        </div>
+      </div>
+
+  <div class="custom-space" *ngIf="cars && cars?.length!==0">
+    <div class="alert alert-dismissible alert-warning" *ngFor="let car of cars">
+      <button type="button" class="close" data-dismiss="alert" (click)="deleteCar(car._id)">&times;</button>
+      <h4 class="alert-heading">Warning! You are about to delete car: {{car.carName}}</h4>
+      <p class="mb-0">The car is {{car.carBrand}} {{car.carModel}} and it's price is: {{car.initialInvestment}}lv!        
+    </div>
+  </div>
+</div>

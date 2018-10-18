@@ -1,0 +1,73 @@
+
+
+  <div class="container-fluid">
+    <h1>Overall Garage Report</h1>
+    <p>Current Expense Statistics:</p>
+    <div *ngIf="isGarageEmpty"> <strong>You do not have cars, so no report could be generated!</strong> </div>
+    <div class="row" *ngIf="!isGarageEmpty">
+      <div class="col-sm-8" >
+            <br>
+            <br>
+        <div class="row" *ngIf="isDataCollected">
+
+          <div class="custom-chart" class="col-sm-6" >
+              <span>
+                  <h5>Overall distribution by car, lv</h5>
+                </span>
+                <div style="display: block">
+                  <canvas baseChart [data]="pieChartDataByCar" [labels]="pieChartLabelsByCar"  [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                </div>
+          </div>
+
+          <div class="custom-chart" class="col-sm-6" >
+              <span>
+                  <h5>Overall percentage distribution by car, %</h5>
+                </span>
+                <div style="display: block">
+                  <canvas baseChart [data]="pieChartDataByCarPercentage" [labels]="pieChartLabelsByCar"  [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                </div>
+          </div>
+
+
+          <div class="custom-chart" class="col-sm-6" >
+              <span>
+                  <h5>Overall distribution by category, lv</h5>
+                </span>
+                <div style="display: block">
+                  <canvas baseChart [data]="pieChartDataByCategory" [labels]="pieChartLabelsByCategory"  [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                </div>
+          </div>
+
+          <div class="custom-chart" class="col-sm-6" >
+              <span>
+                  <h5>Overall percentage distribution by category, %</h5>
+                </span>
+                <div style="display: block">
+                  <canvas baseChart [data]="pieChartDataByCategoryPercentage" [labels]="pieChartLabelsByCategory"  [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                </div>
+          </div>
+
+
+           </div>  
+      </div>
+      <div class="col-sm-4" *ngIf="isDataCollected">
+
+          <div class="card-body" >
+              <h3 class="card-title"> {{garage.garageName}}</h3>
+              <img class="center-car" src="{{garage.garagePicture}}"
+            alt="Card image">
+              <br>
+              <!-- <h4 class="card-subtitle mb-2 text-muted">Car Brand: {{car.carBrand}}</h4> -->
+              <h6 class="card-subtitle mb-2 text-muted">There are : {{garage.cars.length}} cars in the garage</h6>
+              <h6 class="card-subtitle mb-2 text-muted" *ngIf="garage.isPublic">Garage is public - everyone can see it!</h6>
+              <h6 class="card-subtitle mb-2 text-muted" *ngIf="!garage.isPublic">Garage is private - only you have access to it</h6>
+              <p class="card-text">Garage Description: {{garage.garageDescription}}</p>
+            </div>
+              
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,55 @@
+
+
+  <div class="container-fluid">
+      <h1>Car Report</h1>
+      <p>Current Expense Statistics:</p>
+      <div class="row">
+        <div class="col-sm-8" >
+            <h3 *ngIf="car">
+                 {{car.carBrand}} {{car.carModel}}
+              </h3>
+              <br>
+              <br>
+          <div class="row" *ngIf="expense">
+            <div class="custom-chart" class="col-sm-6" >
+
+                <span>
+                    <h5>Distribution by money, lv</h5>
+                  </span>
+                  <div style="display: block">
+                    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels"  [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                  </div>
+
+            </div>
+            <div class="col-sm-6" >
+
+                <span>
+                    <h5>Distribution by percentage,%</h5>
+                  </span>
+                  <div style="display: block">
+                    <canvas baseChart [data]="pieChartDataPercentage" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+                  </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-4" *ngIf="car">
+
+            <div class="card-body" >
+                <h2 class="card-title">Car name: {{car.carName}}</h2>
+                <img class="center-car" src="{{car.carPicture}}"
+              alt="Card image">
+                <br>
+                <h4 class="card-subtitle mb-2 text-muted">Car Brand: {{car.carBrand}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Car Model: {{car.carModel}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Car Price: {{car.initialInvestment}} lv.</h6>
+                <p class="card-text">Card Description: {{car.carDescription}}</p>
+                <button type="button" class="btn btn-secondary" routerLink="/cars/details/{{car._id}}">Car Details</button>
+              </div>
+                
+        </div>
+      </div>
+    </div>

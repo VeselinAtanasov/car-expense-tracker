@@ -1,0 +1,19 @@
+.container-fluid{
+    margin-top: 2%;
+    margin-right: 1%;
+    margin-left: 1%;
+    padding-left: 3%;
+    padding-right: 3%
+}
+
+.custom-chart{
+    border-style:solid ;
+}
+
+.center-car{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 7505%;
+}

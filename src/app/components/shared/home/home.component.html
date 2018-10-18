@@ -1,0 +1,70 @@
+
+
+<div class="container">
+    <div class="row space-top">
+        <div class="col-md-12" *ngIf="isAuth">
+            <h1>Home Page</h1>
+            <p>
+                <strong>
+                    App public garages:
+                </strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="container" *ngIf="!isAuth">
+
+        <h2>Car Expense Tracker</h2>
+        <p>
+            Do you know how much money your car costs you? Do you know how much money you are spending on your car? If the answer of
+            all of these question is NO, then you are on the right place.
+        </p>
+        <p>
+            <br>
+            <strong>If you want to check our application,
+                <em>
+                    <a routerLink="/auth/login"> please login.</a>
+                </em>
+            </strong>
+            <br>
+            <br>
+            <strong>If you don't have an account,
+                <em>
+                    <a routerLink="/auth/register"> please register.</a>
+                </em>
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="row space-top" *ngIf="allPublicGarages">
+
+        <div class="col-md-4" *ngFor="let garage of allPublicGarages | paginate: {
+            id: 'allGarages',
+            itemsPerPage: pageSize,
+            currentPage: currentPage
+        }">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <blockquote class="card-blockquote">
+                        <p>
+                            <font size="6">{{garage.garageName}}</font>
+                        </p>
+                        <img class="center" src="{{garage.garagePicture}}" />
+                        <p>Garage Description:</p>
+                        <p>{{garage.garageDescription}}</p>
+                        <footer>
+                            <cite title="Source Title"> This garage contains {{garage.cars.length}} cars</cite>
+                        </footer>
+                        <div class="pull-right">
+                            <a class="btn btn-info" routerLink="/garage/details/{{garage._id}}">Have a look? </a>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls class="center" id="allGarages" (pageChange)="pageChange($event)" maxSize="9" directionLinks="true" autoHide="true"
+        previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You are on page"></pagination-controls>
+</div>
